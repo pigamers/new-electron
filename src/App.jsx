@@ -19,7 +19,15 @@ function App() {
     setTodos(savedTodos);
 
     // Show welcome toast message
-    toast.success('Click on "Add To Do" to start!', {duration: 3000});
+    toast('Click on "Add To Do" to start!', {
+      duration: 3000,
+      icon: '👋',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
   }, []);
 
   // Save todos to local storage whenever the todos state changes
@@ -30,7 +38,13 @@ function App() {
   const handleAddTodo = (todo) => {
     setTodos((prevTodos) => [...prevTodos, todo]);
     setIsAddDialogOpen(false);
-    toast.success('Todo added successfully!'); // Success message
+    toast.success('Todo added successfully!', {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }); // Success message
   };
 
   const handleCloseAddDialog = () => {
@@ -47,13 +61,25 @@ function App() {
     setTodos(updatedTodos);
     setEditIndex(null);
     setIsUpdateDialogOpen(false);
-    toast.success('Todo updated successfully!'); // Success message
+    toast.success('Todo updated successfully!', {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }); // updated message
   };
 
   const handleRemoveTodo = (index) => {
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
-    toast.success('Todo deleted successfully!'); // Success message
+    toast.success('Todo deleted successfully!', {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    }); // deleted message
   };
 
   return (
